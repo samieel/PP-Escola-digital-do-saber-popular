@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div style="margin-top: 50px" class="alert alert-warning text-dark text-center container" role="alert">
+    EVENTOS
+</div>
+
+<div class="row container-fluid">
+    {% for env in evento %}
+    <div class="col-md-6 my-3 ">
+        <div class="card shadow-lg">
+            <div class="card-header rounded-lg bg-warning text-white text-center">
+                <h4>{{env.nome_evento}}</h4>
+            </div>
+            <div class="card-body bg-light circle">
+                <div class="card">
+                    <div class="card-header bg-secondary text-white">
+                        Descrição
+                    </div>
+                    <div style="max-height: 300px;" data-spy="scroll" class="card-body overflow-auto">
+                        <p class="card-text">{{env.descricao_evento}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid bg-light">
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Dia</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Local</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{env.dia_evento}}</td>
+                            <td>{{env.hora_evento}}</td>
+                            <td>{{env.local_evento}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
