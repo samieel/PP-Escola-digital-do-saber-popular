@@ -37,7 +37,7 @@ def criar_texto(request):
 
         if formt.is_valid():
             formt.save()
-            return redirect('/formulario/sucesso/')
+            return redirect('/formulario/sucesso/%s' %key)
 
     formt = CPTexto()
     return render(request, 'formulario/text.html', {'formt':formt})
@@ -52,10 +52,10 @@ def criar_utexto(request, key):
 
         if formt.is_valid():
             formt.save()
-            return redirect('/formulario/sucesso/')
+            return redirect('/formulario/sucesso/%s' %key)
 
     formt = CPTexto()
     return render(request, 'formulario/utext.html', {'formt':formt, 'aul':key})
 
-def sucesso(request):
-    return render(request, 'formulario/sucesso.html')
+def sucesso(request, key):
+    return render(request, 'formulario/sucesso.html', {'key':key})
