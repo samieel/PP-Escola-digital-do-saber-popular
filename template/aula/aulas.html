@@ -10,25 +10,26 @@
     {% for aul in aula %}
     <div class="col-md-6 my-3 ">
         <div class="card shadow-lg">
-            <div class="card-header rounded-lg bg-warning text-white text-center">
+            <div class="card-header rounded-lg bg-danger text-white text-center">
                 <h4>{{ aul.titulo_aula }}</h4>
             </div>
             <div class="card-body bg-light circle">
-                <h3 class="card-title">
-                    Autor -- {{aul.nome_autor}}
-                </h3>
-                <h5 class="container-fluid card-text text-info">
-                    {{aul.email_autor}}
+                <h1 class="lead">
+                    - {{aul.nome_autor}}
+                </h1>
+                <h5 class=" card-text lead text-danger">
+                    - {{aul.email_autor}}
                 </h5>
 
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
                         Descrição
                     </div>
-                    <div style="max-height: 300px;" data-spy="scroll" class="card-body overflow-auto">
+                    <div style="max-height: 240px;" data-spy="scroll" class="card-body overflow-auto">
                         <p class="card-text">{{aul.descricao_aula}}</p>
                     </div>
                 </div>
+                <a href="{{aul.number}}" class="btn btn-danger mt-2 col"><p class="lead my-auto">Ver aula completa</p></a>
             </div>
         </div>
     </div>

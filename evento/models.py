@@ -9,5 +9,5 @@ class EVENTO (models.Model):
     local_evento = models.CharField(max_length=100)
     link_evento = models.CharField(default='Sem link :(', max_length=200, blank=True)
 
-    def Meta():
+    class Meta:
         ordering = ['-dia_evento']

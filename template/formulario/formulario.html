@@ -3,6 +3,43 @@
 
 {% block content %}
 
-<div style="padding:20px">
-    {% crispy form form.helper %}
-    {% endblock %}
+<div class="form-group container-fluid p-5">
+    <form  method="post" >
+
+        {% csrf_token %}
+
+        <div id="div_id_nome_autor" class="control-group">
+            <div class="controls my-2">
+                <input type="text" name="nome_autor" class="form-control" required id="id_nome_autor" placeholder="NOME DO AUTOR *">
+            </div>
+        </div>
+        
+        <div id="div_id_email_autor" class="control-group">
+            <div class="controls my-2">
+                <input type="email" name="email_autor" class="form-control" id="id_email_autor" placeholder="EMAIL DO AUTOR">
+            </div>
+        </div>
+        
+        <div id="div_id_titulo_aula" class="control-group">
+            <div class="controls my-2">
+                <input type="text" name="titulo_aula" class="form-control" required id="id_titulo_aula" placeholder="TITULO DA AULA *">
+            </div>
+        </div>
+        
+        <div id="div_id_descricao_aula" class="control-group">
+            <div class="controls">
+                <textarea name="descricao_aula" class="form-control" id="id_descricao_aula" placeholder="DESCRIÇÃO DA AULA" rows='5'></textarea>
+            </div>
+        </div>
+
+        <div class="d-none" id="div_id_number" class="control-group"> 
+            <div class="controls">
+                <input type="number" name="number" value="0" class="numberinput" required id="id_number">
+            </div>
+        </div>
+
+        <input type="submit" name="submit" value="Criar aula" class="btn btn-primary btn-primary, my-3" id="submit-id-submit"/> 
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="form-group container-fluid p-5">
+    <form  method="post" >
+
+        {% csrf_token %}
+
+        <div id="div_id_codigo_aula" class="control-group">
+            <div class="controls my-2">
+                <input type="text" name="codigo_aula" class="form-control" required id="id_codigo_aula" placeholder="CODIGO DA AULA *">
+            </div>
+        </div>
+
+        <div id="div_id_topico" class="control-group">
+            <div class="controls my-2">
+                <input type="text" name="topico" class="form-control" required id="id_topico" placeholder="NOME DO TOPICO *">
+            </div>
+        </div>
+        
+        <div id="div_id_texto" class="control-group">
+            <div class="controls">
+                <textarea name="texto" class="form-control" id="id_texto" placeholder="TEXTO REFERENTE AO TOPICO *" rows='5'></textarea>
+            </div>
+        </div>
+
+        <input type="submit" name="submit" value="Criar texto" class="btn btn-primary btn-primary, my-3" id="submit-id-submit"/> 
+    </form>
+</div>
+
+{% endblock %}
