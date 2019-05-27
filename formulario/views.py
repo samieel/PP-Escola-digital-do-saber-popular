@@ -7,16 +7,14 @@ from .forms import CAtividade, CPTexto
 def criar_atividade(request):
     if request.method == "POST":
         form = CAtividade(request.POST)
-        formt = CPTexto(request.POST)
 
         if form.is_valid():
+            print("meu deus")
             post = form.save(commit=False)
             n = (AULA.objects.count()+ 1)
             post.number = n
             post.save()
             key = post.codigo
-            newaula = AULA.objects.get(codigo=key)
-
             return redirect('utexto/%s' %key )
 
             """return render(request, 'formulario/utext.html', {'formt':formt}, {'aula':newaula})
@@ -26,8 +24,7 @@ def criar_atividade(request):
                 return render(request, 'formulario/formulario.html')"""
 
 
-    form = CAtividade()
-    formt = CPTexto()
+    form = CAtividade()     
     return render(request, 'formulario/formulario.html', {'form':form})
 
 def criar_texto(request):
