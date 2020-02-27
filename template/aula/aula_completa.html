@@ -2,30 +2,22 @@
 
 
 {% block content %}
-<div class="row mt-5 mx-auto alert alert-warning text-dark text-center container-fluid " role="alert">
-    <div class="row mx-auto mt-2 text-uppercase font-weight-ligth lead"><p>Escrito por: <p class="text-danger ml-2">{{ aula.nome_autor }}</p></p></div>
-    
-        <div class="row mx-auto container-fluid">
-            <div class="row mx-auto text-uppercase font-weight-ligth lead"><p>Email: <p class="text-danger ml-2">{{aula.email_autor}}</p></p></div>
-        </div>
-        <div class="container-fluid row mx-auto">
-            <div class="mx-auto card shadow-lg my-4 mb-5 col-auto">
-                <div class="card-header rounded-lg bg-danger text-white text-center">
-                    <h4>{{ aula.titulo_aula }}</h4>
-                </div>
-                <div class="card-body bg-light circle">
-                    <div class="card">
-                        <div class="card-header bg-secondary text-white">
-                            Descrição
-                        </div>
-                        <div data-spy="scroll" class="card-body overflow-auto">
-                            <p class="card-text">{{aula.descricao_aula}}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="mt-5 alert alert-warning text-dark text-center container-fluid " role="alert">
+    <div class="row mx-auto mt-2 text-uppercase font-weight-ligth lead">
+        <p class="mx-auto">Escrito por: {{ aula.nome_autor }}</p>
     </div>
+
+    {% if aul.email_autor != null %}
+    <div>
+        <p class="mx-auto">
+            Email - {{aul.email_autor}}
+        </p>
+    </div>
+    {% endif %}
+    <div class="lead">
+        <p class="mx-auto">{{ aula.titulo_aula }}</p>
+    </div>
+</div>
 
 <div class="row container mx-auto lead">
     <table class="table">
@@ -33,14 +25,20 @@
             <h3 class="mx-auto display-4 text-danger"> TEXTOS </h3>
         </thead>
         <tbody>
-    {% for texto in textos %}
+            {% for texto in textos %}
             <tr>
-                <td><p class="text-center text-uppercase font-weight-bold"> {{texto.topico}} </p>  </td>
+                <td>
+                    <p class="text-center text-uppercase font-weight-bold"> {{texto.topico}} </p>
+                </td>
             </tr>
             <tr>
-                <td> <p style="text-indent: 40px" class="text-justify">{{texto.texto}}</p></td>
+                <td>
+                    {% autoescape off %}
+                    {{texto.texto}}
+                    {% endautoescape %}
+                </td>
             </tr>
-    {% endfor %}
+            {% endfor %}
         </tbody>
     </table>
 </div>

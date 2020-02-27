@@ -15,18 +15,19 @@
             </div>
             <div class="card-body bg-light circle">
                 <h1 class="lead">
-                    - {{aul.nome_autor}}
+                   Autor - {{aul.nome_autor}}
                 </h1>
+                {% if aul.email_autor != null %}
                 <h5 class=" card-text lead text-danger">
-                    - {{aul.email_autor}}
+                   Email - {{aul.email_autor}}
                 </h5>
-
+                {% endif %}
                 <div class="card">
                     <div class="card-header bg-secondary text-white">
                         Descrição
                     </div>
                     <div style="max-height: 240px;" data-spy="scroll" class="card-body overflow-auto">
-                        <p class="card-text">{{aul.descricao_aula}}</p>
+                        {{aul.descricao_aula}}
                     </div>
                 </div>
                 <a href="{{aul.number}}" class="btn btn-danger mt-2 col"><p class="lead my-auto">Ver aula completa</p></a>

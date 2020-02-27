@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'basea.html' %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -28,7 +28,8 @@
         
         <div id="div_id_texto" class="control-group">
             <div class="controls">
-                <textarea name="texto" class="form-control" id="id_texto" placeholder="TEXTO REFERENTE AO TOPICO *" rows='5'></textarea>
+                <label class="text-secondary container-fluid">DESCRIÇÃO *</label>
+                <textarea name="texto" class="form-control" id="id_texto" rows='5'></textarea>
             </div>
         </div>
 
